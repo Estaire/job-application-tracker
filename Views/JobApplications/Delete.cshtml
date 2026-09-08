@@ -1,0 +1,16 @@
+@model JobTracker.Web.Models.JobApplication
+
+<h1>Delete Application</h1>
+
+<div class="confirm-box">
+    <p style="margin-bottom:0.5rem;">This will permanently remove:</p>
+    <p style="font-family:'Source Serif 4', serif; font-weight:600; font-size:1.1rem; margin-bottom:0;">
+        @Model.CompanyName — @Model.RoleTitle
+    </p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete Permanently</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

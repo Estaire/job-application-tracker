@@ -1,0 +1,40 @@
+@model IEnumerable<JobTracker.Web.Models.JobApplication>
+
+<h1>My Job Applications</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Application</a>
+</p>
+
+@if (!Model.Any())
+{
+    <p style="color:#6B6660;">Nothing tracked yet. Add the first one to get started.</p>
+}
+else
+{
+    <div class="ledger">
+        <select id="statusFilter" class="form-select">
+            <option value="All">All Statuses</option>
+            @foreach (var status in Enum.GetValues(typeof(JobTracker.Web.Models.ApplicationStatus)).Cast<JobTracker.Web.Models.ApplicationStatus>())
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+        @foreach (var item in Model)
+        {
+            <div class="ledger-row" data-status="@item.Status">
+                <div class="ledger-main">
+                    <div class="ledger-company">@item.CompanyName</div>
+                    <div class="ledger-role">@item.RoleTitle</div>
+                </div>
+                <div class="ledger-status">@item.Status</div>
+                <div class="ledger-date">@item.DateApplied.ToString("MMM d")</div>
+                <div class="ledger-actions">
+                    <a asp-action="Details" asp-route-id="@item.Id">View</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,38 @@
+@model JobTracker.Web.Models.JobApplication
+
+<h1>@Model.CompanyName</h1>
+
+<div class="detail-list">
+    <div class="detail-row">
+        <div class="detail-label">Role</div>
+        <div class="detail-value">@Model.RoleTitle</div>
+    </div>
+    <div class="detail-row">
+        <div class="detail-label">Status</div>
+        <div class="detail-value">@Model.Status</div>
+    </div>
+    <div class="detail-row">
+        <div class="detail-label">Date Applied</div>
+        <div class="detail-value">@Model.DateApplied.ToShortDateString()</div>
+    </div>
+    <div class="detail-row">
+        <div class="detail-label">Job Posting</div>
+        <div class="detail-value">
+            @if (!string.IsNullOrEmpty(Model.JobPostingUrl))
+            {
+                <a href="@Model.JobPostingUrl" target="_blank">View Posting</a>
+            }
+            else
+            {
+                <span style="color:#6B6660;">—</span>
+            }
+        </div>
+    </div>
+    <div class="detail-row">
+        <div class="detail-label">Notes</div>
+        <div class="detail-value">@Model.Notes</div>
+    </div>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
