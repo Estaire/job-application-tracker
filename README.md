@@ -22,25 +22,25 @@ A full-stack web app for tracking job applications, built with ASP.NET Core MVC 
 
 1. Clone the repo:
 
-git clone https://github.com/Estaire/job-application-tracker.git
-cd job-application-tracker
+```git clone https://github.com/Estaire/job-application-tracker.git```
+```cd job-application-tracker```
 
 2. Start SQL Server in Docker:
 
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourPassword" -p 1433:1433 --name sql-dev -d mcr.microsoft.com/mssql/server:2022-latest
+```docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourPassword" -p 1433:1433 --name sql-dev -d mcr.microsoft.com/mssql/server:2022-latest```
 
 3. Set your connection string as a user secret:
 
-dotnet user-secrets init
-dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost,1433;Database=JobTrackerDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True"
+```dotnet user-secrets init```
+```dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost,1433;Database=JobTrackerDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True"```
 
 4. Apply migrations:
 
-dotnet ef database update
+```dotnet ef database update```
 
 5. Run the app:
 
-dotnet run
+```dotnet run```
 
 ## Screenshot
 
