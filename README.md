@@ -47,9 +47,8 @@ A full-stack web app for tracking job applications, built with ASP.NET Core MVC 
 ### Landing Page
 
 ![Docket landing page](wwwroot/images/landing-page.png)
-<<<<<<< HEAD
 
 ## Live Demo
 https://docket-app-jg.azurewebsites.net
-=======
->>>>>>> df9317cface032e0f89ddcd7947054f2a720cfe1
+
+
