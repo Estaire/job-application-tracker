@@ -485,3 +485,5 @@ appsettings.json
 
 # Database files
 *.db
+
+publish.zip
